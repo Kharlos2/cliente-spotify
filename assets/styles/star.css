@@ -1,0 +1,17 @@
+*{
+    padding: 0;
+    margin: 0;
+    
+}
+.menu{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3rem 30rem;
+    background-color:#779FA1;
+    
+}
+.menu img{
+    width: 150px;
+}
