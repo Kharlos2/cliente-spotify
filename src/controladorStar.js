@@ -1,41 +1,90 @@
 import { pedirPlanetas } from "../services/servicesStar.js";
+import { pedirEspecies } from "../services/servicesStar.js";
 
-let tarjeta = document.getElementById("tarjeta");
+let fila = document.getElementById("fila");
 
 pedirPlanetas()
     .then(function (info) {
 
         info.results.forEach(function (results) {
 
-            tarjeta.innerHTML += results.name
+            let columna = document.createElement("section")
+            columna.classList.add("columna")
 
-            console.log(results);
-            // let columna=document.createElement("div")
-            // columna.classList.add("col")
+            let tarjeta = document.createElement("seccion")
+            tarjeta.classList.add("tarjeta")
 
-            // let tarjeta=document.createElement("div")
-            // tarjeta.classList.add("card","h-100","shadow")
+            let nombre = document.createElement("h1")
+            nombre.textContent = results.name
 
-            // let pista=document.createElement("audio")
-            // pista.classList.add("w-100")
-            // pista.setAttribute("controls","controls")
-            // pista.src=cancion.preview_url
+            let gravedad = document.createElement("h4")
+            gravedad.textContent = 'GRAVEDAD: ' + results.gravity
 
-            // let foto = document.createElement("img")
-            // foto.classList.add("img-fluid" ,"w-100")
-            // foto.src=cancion.album.images[0].url
+            let imagen = document.createElement("img")
+            imagen.classList.add("planeta")
+            imagen.src = "../assets/img/planeta.png"
 
-            // let nombre = document.createElement("h4")
-            // nombre.classList.add("text-center","fw-bold")
-            // nombre.textContent=cancion.name
+            let diametro = document.createElement("h4")
+            diametro.textContent = "DIAMETRO: " + results.diameter + "km"
 
-            // tarjeta.appendChild(foto)
-            // tarjeta.appendChild(nombre)
-            // tarjeta.appendChild(pista)
-            // columna.appendChild(tarjeta)
-            // fila.appendChild(columna)
+            let clima = document.createElement("h4")
+            clima.textContent = "CLIMA: " + results.climate
+
+            let periodo = document.createElement("h4")
+            periodo.textContent = "PERIODO ORBITAL: " + results.orbital_period + " dias"
+
+            tarjeta.appendChild(imagen)
+            tarjeta.appendChild(nombre)
+            tarjeta.appendChild(gravedad)
+            tarjeta.appendChild(diametro)
+            tarjeta.appendChild(clima)
+            tarjeta.appendChild(periodo)
+            columna.appendChild(tarjeta)
+            fila.appendChild(columna)
 
         })
+    })
 
+let fila2 = document.getElementById("fila2");
 
+pedirEspecies()
+    .then(function (info2) {
+
+        info2.results.forEach(function (results) {
+
+            let columna = document.createElement("section")
+            columna.classList.add("columna")
+
+            let tarjeta = document.createElement("seccion")
+            tarjeta.classList.add("tarjeta")
+
+            let nombre = document.createElement("h1")
+            nombre.textContent = results.name
+
+            let lengueje = document.createElement("h4")
+            lengueje.textContent = 'LENGUAJE: ' + results.language
+
+            let imagen = document.createElement("img")
+            imagen.classList.add("toad")
+            imagen.src = "../assets/img/toad.png"
+
+            let color = document.createElement("h4")
+            color.textContent = "COLOR DE PIEL: " + results.skin_colors
+
+            let clasificacion = document.createElement("h4")
+            clasificacion.textContent = "CLASIFICACIÓN: " + results.classification
+
+            let estatura = document.createElement("h4")
+            estatura.textContent = "ESTATURA PROMEDIO: " + results.average_height + " cm"
+
+            tarjeta.appendChild(imagen)
+            tarjeta.appendChild(nombre)
+            tarjeta.appendChild(lengueje)
+            tarjeta.appendChild(color)
+            tarjeta.appendChild(clasificacion)
+            tarjeta.appendChild(estatura)
+            columna.appendChild(tarjeta)
+            fila2.appendChild(columna)
+
+        })
     })

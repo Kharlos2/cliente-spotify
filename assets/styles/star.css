@@ -14,4 +14,44 @@
 }
 .menu img{
     width: 150px;
+    border-radius: 50%;
+}
+.contenido{
+    text-align: center;
+}
+#fila,#fila2{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.columna{
+    background-color: rgb(206, 148, 73);
+    margin: 20px;
+    width: 30%;
+    border-radius: 30px;
+}
+.tarjeta{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    align-items: center;
+     
+}
+.tarjeta h1{
+
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 25px;
+
+}
+.planeta{
+    width: 40%;
+    border-radius: 100%;
+}
+.titulo{
+    margin-top: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 40px;
+}
+.toad{
+    width: 40%;
 }
